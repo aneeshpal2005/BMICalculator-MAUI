@@ -1,24 +1,46 @@
-﻿namespace BMICalculator
+﻿using System.Xml.Serialization;
+
+namespace BMICalculator
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        new String GenderChoice = "Male";
+
+        Shadow DefaultShadow = new Shadow
+        {
+            Brush = Colors.Transparent,
+            Offset = new Point(0.1, 0.1),
+            Opacity = 0.5f,
+            Radius = 1
+        };
+
+        Shadow SelectedShadow = new Shadow
+        {
+            Brush = Colors.Black,
+            Offset = new Point(0.1, 0.1),
+            Opacity = 0.5f,
+            Radius = 4
+        };
 
         public MainPage()
         {
             InitializeComponent();
+            MaleGestureRecognizer_Tapped(null, null);
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+
+        private void FemaleGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            count++;
+            GenderChoice = "Female";
+            BorderFemale.Shadow = SelectedShadow;
+            BorderMale.Shadow = DefaultShadow;
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void MaleGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+        {
+            GenderChoice = "Male";
+            BorderMale.Shadow = SelectedShadow;
+            BorderFemale.Shadow = DefaultShadow;
         }
     }
 }
