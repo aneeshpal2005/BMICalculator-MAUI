@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BMICalculator.MainPage"
+             BackgroundColor="White"
              Title="">
 
-    <Grid RowDefinitions="Auto,Auto,*"
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto"
           ColumnDefinitions="*,*"
           Margin="20"
           RowSpacing="30"
@@ -17,7 +18,8 @@
                HorizontalOptions="Center"
                FontSize="Large"
                TextColor="#0a0a0a"
-               FontAttributes="Bold" />
+               FontAttributes="Bold"
+               BackgroundColor="WhiteSmoke"/>
 
         <Border Grid.Row="1"
                Grid.Column="0"
@@ -34,6 +36,7 @@
                        Shadow="0.1 0.1 1 Grey 0.5"
                        HorizontalOptions="Center"/>
                 <Label Text="Male"
+                       TextColor="Black"
                        HorizontalOptions="Center"
                        FontSize="Medium"
                        FontAttributes="Bold" />
@@ -61,6 +64,7 @@
                        Shadow="0.1 0.1 1 Grey 0.5"
                        HorizontalOptions="Center"/>
                 <Label Text="Female"
+                       TextColor="Black"
                        HorizontalOptions="Center"
                        FontSize="Medium"
                        FontAttributes="Bold" /> 
@@ -74,19 +78,60 @@
         </Border>
 
 
-        <VerticalStackLayout
-            Grid.Row="2"
+        <Border Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Spacing="10">
-            <Label Text="Height (cm):" />
-            <Entry x:Name="HeightEntry" />
-            <Label Text="Weight (kg):" />
-            <Entry x:Name="WeightEntry" />
-            <Button Text="Calculate BMI"/>
-        </VerticalStackLayout>
+            Padding="20"
+            BackgroundColor="WhiteSmoke"
+            Shadow="0.1 0.1 1 Grey 0.5"
+            Margin="10">
 
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Height (inches):" TextColor="Black"/>
+                <Slider x:Name="HeightEntry" 
+                        Minimum="0"
+                        Maximum="100"
+                        Value="50"
+                        ValueChanged="HeightEntry_ValueChanged"/>
+                <Label x:Name="HeightValue"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Text="55" />
 
+                <Label 
+                    TextColor="Black"
+                    Text="Weight (lbs):" />
+                <Slider x:Name="WeightEntry"
+                        Minimum="0"
+                        Maximum="300"
+                        Value="90" 
+                        ValueChanged="WeightEntry_ValueChanged" />
+                <Label x:Name="WeightValue"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Text="90" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Border 
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Padding="20"
+            BackgroundColor="WhiteSmoke"
+            Shadow="0.1 0.1 1 Grey 0.5"
+            Margin="10">
+
+            <VerticalStackLayout>
+                <Button Text="Get BMI Recommendations"
+                        BackgroundColor="MediumPurple"
+                        TextColor="White"
+                        Clicked="Button_Clicked"/>
+            </VerticalStackLayout>
+        </Border>
+        
     </Grid>
 
 </ContentPage>
