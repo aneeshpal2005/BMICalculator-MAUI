@@ -2,17 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BMICalculator.RecommendationPage"
-             Title="RecommendationPage">
+             BackgroundColor="White"
+             Title="">
     <VerticalStackLayout>
         
         <Label x:Name="recommendationLabel"
-           FontSize="20"/>
+               FontSize="18"
+               Padding="20"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               />
 
         <Button Text="Back to BMI Results"
-            Clicked="BackToResultPage_Clicked"/>
+                BackgroundColor="MediumPurple"
+                TextColor="White"
+                BorderColor="Bisque"
+                BorderWidth="2"
+                Clicked="BackToResultPage_Clicked"/>
 
         <Button Text="Back to Input Page"
-            Clicked="BackToMainPage_Clicked"/>
+                BackgroundColor="MediumPurple"
+                TextColor="White"
+                BorderColor="Bisque"
+                BorderWidth="2"
+                Clicked="BackToMainPage_Clicked"/>
         
     </VerticalStackLayout>
 </ContentPage>
