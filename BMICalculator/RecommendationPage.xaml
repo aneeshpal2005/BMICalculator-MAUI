@@ -4,7 +4,7 @@
              x:Class="BMICalculator.RecommendationPage"
              BackgroundColor="White"
              Title="">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="20" Spacing="20">
         
         <Label x:Name="recommendationLabel"
                FontSize="18"
